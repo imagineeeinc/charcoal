@@ -1,0 +1,35 @@
+{
+  "name": "charcoal",
+  "version": "0.1.0",
+  "description": "A on demand, free music streaming service",
+  "main": "src/index.js",
+  "scripts": {
+    "serve": "node src/server.js",
+    "dev:server": "cd src && nodemon server.js",
+    "dev:app": "cd app && vite --port=5000",
+    "build": "cd app && vite build --emptyOutDir && node copyFavicon.js",
+    "preview": "cd app && vite preview",
+    "gen:fav": "cd app && pwa-asset-generator ./img/charcoal.png ./favicon --background #00000000 -o false -m ./manifest.json -i ./app/index.html -t png -f true --mstile true -d true --log -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imagineeeinc/charcoal.git"
+  },
+  "keywords": [
+    "stream-music"
+  ],
+  "author": "imagineeeinc",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/imagineeeinc/charcoal/issues"
+  },
+  "homepage": "https://github.com/imagineeeinc/charcoal#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "youtube-audio-stream": "^0.3.61"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18",
+    "vite": "^2.9.13"
+  }
+}

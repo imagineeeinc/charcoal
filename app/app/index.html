@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Charcoal</title>
+	<link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+	<nav>
+		<img src="../img/charcoal.png" id="icon">
+		<div id="menu">
+			<button class="symbol menu-btn cur-page" id="home">home</button>
+			<button class="symbol menu-btn" id="now-playing">play_circle</button>
+			<button class="symbol menu-btn" id="queue">queue_music</button>
+			<button class="symbol menu-btn" id="search">search</button>
+			<button class="symbol menu-btn" id="settings">settings</button>
+		</div>
+	</nav>
+	<main id="home-content" home>
+		<img src="../img/charcoal.png" width="15%">
+		<h1 style="font-size: 40px;">Welcome to Charcoal</h1>
+		<h5>Effortless, On-Demand, Free Music Streaming; Made Easy!</h5>
+	</main>
+	<main id="now-playing-content" now-playing>
+	</main>
+	<main id="queue-content" queue>
+	</main>
+	<main id="search-content" search>
+	</main>
+	<main id="settings-content" settings>
+		<section>
+			<h2>Developers mode</h2>
+			<label>
+				Developers Mode
+				<input type="checkbox" id="develop">
+			</label>
+			<br>
+			<label>
+				Show bounding box
+				<input type="checkbox" class="dev" onchange="document.body.classList.toggle('bounds')">
+			</label>
+		</section>
+	</main>
+	<script src="./js/main.js" type="module"></script>
+</body>
+</html>

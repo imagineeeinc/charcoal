@@ -1,0 +1,81 @@
+@import url(../../styles/symbols.css);
+:root {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 15pt;
+	--bg: #000;
+	--color: #fff;
+	--accent: springgreen;
+	--nav-width: 2rem;
+}
+* {
+	outline: none;
+	transition-duration: .2s;
+}
+.bounds * {
+	outline: 4px solid rgba(255, 0, 255, 0.3);
+}
+body {
+	background: var(--bg);
+	color: var(--color);
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+button {
+	background: transparent;
+	border: none;
+	color: var(--color);
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 5px;
+}
+button:hover {
+	outline: 1px solid var(--accent);
+}
+button:focus {
+	box-shadow: 0 5px var(--accent);
+}
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: var(--nav-width);
+	height: 100%;
+	padding: 10px;
+	font-size: 30px;
+	background: var(--bg);
+}
+nav * {
+	width: 100%;
+	height: var(--nav-width);
+	font-size: inherit;
+}
+#menu {
+	height: calc(100% - 40px);
+	display: grid;
+	align-content: center;
+	row-gap: 20px;
+}
+#icon {
+	transition-duration: 1s ease-out;
+}
+#icon:hover {
+	transform: scale(1.5) rotate(-10deg) translateY(10px);
+	cursor: pointer;
+}
+.cur-page {
+	box-shadow: 0 5px var(--accent);
+	outline: 3px solid var(--accent) !important;
+}
+main {
+	width: calc(100% - var(--nav-width) - 65px);
+	height: 100%;
+	margin-left: calc(var(--nav-width) + 20px);
+	padding-left: var(--nav-width);
+	overflow: auto;
+}
+#home-content {
+	display: grid;
+	align-content: center;
+}
