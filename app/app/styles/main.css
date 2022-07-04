@@ -3,6 +3,7 @@
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 15pt;
 	--bg: #000;
+	--shadow: #101010;
 	--color: #fff;
 	--accent: springgreen;
 	--nav-width: 2rem;
@@ -10,6 +11,7 @@
 * {
 	outline: none;
 	transition-duration: .2s;
+	font-family: inherit;
 }
 .bounds * {
 	outline: 4px solid rgba(255, 0, 255, 0.3);
@@ -25,6 +27,7 @@ body {
 button {
 	background: transparent;
 	border: none;
+	outline: 2px solid var(--shadow);
 	color: var(--color);
 	cursor: pointer;
 	padding: 5px;
@@ -69,13 +72,47 @@ nav * {
 	outline: 3px solid var(--accent) !important;
 }
 main {
-	width: calc(100% - var(--nav-width) - 65px);
-	height: 100%;
-	margin-left: calc(var(--nav-width) + 20px);
-	padding-left: var(--nav-width);
+	width: calc(100% - var(--nav-width) * 4);
+	height: calc(100% - var(--nav-width) * 2);
+	padding: var(--nav-width);
+	padding-left: calc(var(--nav-width) + 80px);
 	overflow: auto;
 }
 #home-content {
 	display: grid;
 	align-content: center;
+}
+input {
+	font-size: inherit;
+	border: 2px solid var(--shadow);
+	color: var(--color);
+	background: var(--bg);
+	border-radius: 5px;
+}
+#search-box {
+	width: 100%;
+	font-size: x-large;
+	padding: 10px;
+	border: 2px solid var(--shadow);
+	color: var(--color);
+	background: var(--bg);
+	border-radius: 10px;
+}
+#search-box:focus {
+	border: 3px solid var(--accent);
+	box-shadow: 0 0 10px var(--accent), 0 0 3px var(--shadow) inset !important;
+}
+#search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius:10px;
+  background: lightcoral;
+  opacity: 0.6;
+	cursor: pointer;
+	transition-duration: .1s;
+}
+#search-box::-webkit-search-cancel-button:hover {
+  border-radius:3px;
+  opacity: 1;
 }

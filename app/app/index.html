@@ -28,6 +28,7 @@
 	<main id="queue-content" queue>
 	</main>
 	<main id="search-content" search>
+		<input type="search" id="search-box" placeholder="search">
 	</main>
 	<main id="settings-content" settings>
 		<section>
@@ -40,6 +41,11 @@
 			<label>
 				Show bounding box
 				<input type="checkbox" class="dev" onchange="document.body.classList.toggle('bounds')">
+			</label>
+			<br>
+			<label>
+				Song Server
+				<input type="url" id="server">
 			</label>
 		</section>
 	</main>
