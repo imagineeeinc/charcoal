@@ -11,8 +11,8 @@ module.exports = {
 		outDir: '../dist',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/index.html'),
-        app: resolve(__dirname, 'src/app/index.html')
+        main: resolve(__dirname, 'index.html'),
+        app: resolve(__dirname, 'app/index.html')
       }
     }
   },
