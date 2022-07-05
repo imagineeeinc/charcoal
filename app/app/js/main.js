@@ -9,7 +9,7 @@ window.state = {
 	queue: [],
 	curPlay: false,
 	playing: false,
-	songServer: null,
+	songServer: 'https://charcoal-song-server.up.railway.app/',
 	curDuration: [0,0],
 	add(id, img, duration, title) {
 		state.queue.push([id, img, duration, title])
@@ -49,7 +49,7 @@ import './modules/dev.js'
 import './modules/search.js'
 //init
 state.set('home')
-state.songServer = localStorage.getItem('songServer') || ''
+state.songServer = localStorage.getItem('songServer') || 'https://charcoal-song-server.up.railway.app/'
 fetch(state.songServer)
 .then((res) => {
 	if (res.status == 200) {
