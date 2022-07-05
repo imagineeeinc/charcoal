@@ -1,54 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Charcoal</title>
-	<link rel="stylesheet" href="./styles/main.css">
-</head>
-<body>
-	<nav>
-		<img src="../img/charcoal.png" id="icon">
-		<div id="menu">
-			<button class="symbol menu-btn cur-page" id="home">home</button>
-			<button class="symbol menu-btn" id="now-playing">play_circle</button>
-			<button class="symbol menu-btn" id="queue">queue_music</button>
-			<button class="symbol menu-btn" id="search">search</button>
-			<button class="symbol menu-btn" id="settings">settings</button>
-		</div>
-	</nav>
-	<main id="home-content" home>
-		<img src="../img/charcoal.png" width="15%">
-		<h1 style="font-size: 40px;">Welcome to Charcoal</h1>
-		<h5>Effortless, On-Demand, Free Music Streaming; Made Easy!</h5>
-	</main>
-	<main id="now-playing-content" now-playing>
-	</main>
-	<main id="queue-content" queue>
-	</main>
-	<main id="search-content" search>
-		<input type="search" id="search-box" placeholder="search">
-	</main>
-	<main id="settings-content" settings>
-		<section>
-			<h2>Developers mode</h2>
-			<label>
-				Developers Mode
-				<input type="checkbox" id="develop">
-			</label>
-			<br>
-			<label>
-				Show bounding box
-				<input type="checkbox" class="dev" onchange="document.body.classList.toggle('bounds')">
-			</label>
-			<br>
-			<label>
-				Song Server
-				<input type="url" id="server">
-			</label>
-		</section>
-	</main>
-	<script src="./js/main.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charcoal</title>
+    <link rel="icon" type="image/png" sizes="196x196" href="../favicon/favicon-196.png">
+    <meta name="msapplication-square70x70logo" content="../favicon/mstile-icon-128.png">
+    <meta name="msapplication-square150x150logo" content="../favicon/mstile-icon-270.png">
+    <meta name="msapplication-square310x310logo" content="../favicon/mstile-icon-558.png">
+    <meta name="msapplication-wide310x150logo" content="../favicon/mstile-icon-558-270.png">
+    <link rel="apple-touch-icon" href="../favicon/apple-icon-180.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+  <body>
+    <nav>
+      <img src="../img/charcoal.png" id="icon">
+      <div id="menu">
+        <button class="symbol menu-btn cur-page" id="home">home</button>
+        <button class="symbol menu-btn" id="now-playing">play_circle</button>
+        <button class="symbol menu-btn" id="queue">queue_music</button>
+        <button class="symbol menu-btn" id="search">search</button>
+        <button class="symbol menu-btn" id="settings">settings</button>
+      </div>
+    </nav>
+    <div id="body">
+      <main id="home-content" home="">
+        <img src="../img/charcoal.png" width="15%">
+        <h1 style="font-size: 40px;">Welcome to Charcoal</h1>
+        <h5>Effortless, On-Demand, Free Music Streaming; Made Easy!</h5>
+      </main>
+      <main id="now-playing-content" now-playing="">
+        <h3 id="title"></h3>
+        <img id="thumbnail">
+        <div id="control-bar">
+          <div id="controls">
+            <button class="symbol" id="last-song">skip_previous</button>
+            <button class="symbol" id="backward-btn">fast_rewind</button>
+            <button class="symbol" id="play-btn">play_arrow</button>
+            <button class="symbol" id="forward-btn">fast_forward</button>
+            <button class="symbol" id="next-song">skip_next</button>
+          </div>
+          <div id="extra-controls"></div>
+          <div id="progress-box">
+            <span id="duration-passed">0:00</span>
+            <progress id="progress" value="0"></progress>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+      </main>
+      <main id="queue-content" queue="">
+      </main>
+      <main id="search-content" search="">
+        <template id="search-res-temp">
+          <div class="search-res">
+            <img>
+            <div class="search-res-txt">
+              <span class="search-res-title"></span>
+              <br>
+              <span class="search-res-views"></span>
+              <br>
+              <span class="search-res-len"></span>
+            </div>
+          </div>
+        </template>
+        <input type="search" id="search-box" placeholder="search">
+        <div id="search-results">
+        </div>
+      </main>
+      <main id="settings-content" settings="">
+        <section>
+          <h2>Developers mode</h2>
+          <label>
+            Developers Mode
+            <input type="checkbox" id="develop">
+          </label>
+          <br>
+          <label>
+            Show bounding box
+            <input type="checkbox" class="dev" onchange="document.body.classList.toggle('bounds')">
+          </label>
+          <br>
+          <label>
+            Song Server
+            <input type="url" id="server">
+          </label>
+        </section>
+      </main>
+    </div>
+    <script src="./js/main.js" type="module"></script>
+  </body>
 </html>

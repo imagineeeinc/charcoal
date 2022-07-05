@@ -1,12 +1,29 @@
 @import url(../../styles/symbols.css);
+@import url(./search.css);
+@import url(./play.css);
 :root {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 15pt;
 	--bg: #000;
 	--shadow: #101010;
+	--shadow-light: #3d3d3d;
+	--shadow-dark: #090909;
 	--color: #fff;
 	--accent: springgreen;
 	--nav-width: 2rem;
+}
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background-color: var(--bg);
+	padding: 3px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--accent);
+	cursor: pointer;
+	border-radius: 10px;
 }
 * {
 	outline: none;
@@ -39,6 +56,9 @@ button:hover {
 button:focus {
 	box-shadow: 0 5px var(--accent);
 }
+button:active {
+	transform: scale(0.8);
+}
 nav {
 	position: fixed;
 	top: 0;
@@ -48,11 +68,13 @@ nav {
 	padding: 10px;
 	font-size: 30px;
 	background: var(--bg);
+	user-select: none;
 }
 nav * {
 	width: 100%;
 	height: var(--nav-width);
 	font-size: inherit;
+	z-index: 100;
 }
 #menu {
 	height: calc(100% - 40px);
@@ -71,12 +93,24 @@ nav * {
 	box-shadow: 0 5px var(--accent);
 	outline: 3px solid var(--accent) !important;
 }
+#body {
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	row-gap: calc(var(--nav-width) + 20px);
+	width: calc(100vw - var(--nav-width) * 2 + 20px);
+	height: 100%;
+	margin-left: calc(var(--nav-width) + 20px);
+	z-index: 50;
+}
 main {
-	width: calc(100% - var(--nav-width) * 4);
+	display: inline-block;
+	width: calc(100vw - var(--nav-width) * 4 + 40px);
 	height: calc(100% - var(--nav-width) * 2);
 	padding: var(--nav-width);
-	padding-left: calc(var(--nav-width) + 80px);
 	overflow: auto;
+	z-index: 1;
 }
 #home-content {
 	display: grid;
@@ -88,31 +122,4 @@ input {
 	color: var(--color);
 	background: var(--bg);
 	border-radius: 5px;
-}
-#search-box {
-	width: 100%;
-	font-size: x-large;
-	padding: 10px;
-	border: 2px solid var(--shadow);
-	color: var(--color);
-	background: var(--bg);
-	border-radius: 10px;
-}
-#search-box:focus {
-	border: 3px solid var(--accent);
-	box-shadow: 0 0 10px var(--accent), 0 0 3px var(--shadow) inset !important;
-}
-#search-box::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  height: 15px;
-  width: 15px;
-  border-radius:10px;
-  background: lightcoral;
-  opacity: 0.6;
-	cursor: pointer;
-	transition-duration: .1s;
-}
-#search-box::-webkit-search-cancel-button:hover {
-  border-radius:3px;
-  opacity: 1;
 }

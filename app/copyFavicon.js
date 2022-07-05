@@ -1,6 +1,6 @@
-/* // include fs-extra package
+// include fs-extra package
 var fs = require("fs-extra");
-var source = './src/favicon';
+var source = './favicon';
 var destination = './dist/favicon';
 fs.copy(source, destination, function (err) {
     if (err){
@@ -8,7 +8,7 @@ fs.copy(source, destination, function (err) {
         return console.error(err)
     }
     console.log('[Favicon] Copy completed!')
-}); */
+});
 
 /* var source = './src/.well-known';
 var destination = './dist/.well-known';

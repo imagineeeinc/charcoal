@@ -6,10 +6,10 @@
   "scripts": {
     "serve": "node src/server.js",
     "dev:server": "cd src && nodemon server.js",
-    "dev:app": "cd app && vite --port=5000",
+    "dev:app": "cd app && vite --port=5000 --host",
     "build": "cd app && vite build --emptyOutDir && node copyFavicon.js",
     "preview": "cd app && vite preview",
-    "gen:fav": "cd app && pwa-asset-generator ./img/charcoal.png ./favicon --background #00000000 -o false -m ./manifest.json -i ./app/index.html -t png -f true --mstile true -d true --log -c"
+    "gen:fav": "cd app && pwa-asset-generator ./img/charcoal.png ./favicon --background #000 -o false -i ./app/index.html -t png -f true --mstile true -d true --log -c"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,9 @@
     "youtube-search-without-api-key": "^1.0.7"
   },
   "devDependencies": {
+    "fs-extra": "^10.1.0",
     "nodemon": "^2.0.18",
+    "pwa-asset-generator": "^6.1.0",
     "vite": "^2.9.13"
   }
 }

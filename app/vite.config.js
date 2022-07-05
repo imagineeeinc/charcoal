@@ -8,11 +8,11 @@ module.exports = {
 	root: './',
 	dest: './dist',
 	build: {
-		outDir: '../dist',
+		outDir: './dist',
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        app: resolve(__dirname, 'app/index.html')
+        main: resolve(__dirname, './index.html'),
+        app: resolve(__dirname, './app/index.html')
       }
     }
   },
