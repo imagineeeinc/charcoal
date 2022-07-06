@@ -54,6 +54,7 @@
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
+  min-width: 20px;
   height: 20px;
 	transform: translateY(-5px);
   outline: none;
