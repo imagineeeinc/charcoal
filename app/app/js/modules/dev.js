@@ -31,6 +31,7 @@ document.getElementById('server').onchange = () => {
 	let s = document.getElementById('server').value.substr(document.getElementById('server').value.length-1) == '/' ? document.getElementById('server').value : document.getElementById('server').value+'/'
 	if (s == '/') {
 		localStorage.setItem('songServer', window.state.defaultSongServer)
+		window.state.songServer = window.state.defaultSongServer
 		return null
 	}
 	fetch(s)
