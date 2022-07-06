@@ -1,2 +1,2 @@
 # charcoal
-A on demand, free music streaming service
+An on demand, effortless, free music streaming service
