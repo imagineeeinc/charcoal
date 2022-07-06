@@ -46,11 +46,6 @@ audio.addEventListener("timeupdate", function() {
 	progression = audio.currentTime/length
 });
 setInterval(()=>{
-	if (progression == 100) {
-		playBtn(false)
-		window.state.next()
-		return null
-	}
 	if (progress.value >= progression-1 && progress.value <= progression+1) {
 		progress.value = progression
 	} else {
@@ -60,6 +55,13 @@ setInterval(()=>{
 	let se = Number(progression)*length
 	let so = [Math.floor(se/60), Math.floor(se%60)]
 	document.getElementById('duration-passed').innerHTML = so[0]+':'+so[1]
+
+	if (progression*length+1 >= length && window.state.playing) {
+		playBtn(false)
+		audio.src = audio.src
+		progress.value = 0
+		window.state.next()
+	}
 
 	progression = Number(progress.value)
 }, 1)

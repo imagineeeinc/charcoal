@@ -29,6 +29,10 @@ document.getElementById('develop').onchange = () => {
 
 document.getElementById('server').onchange = () => {
 	let s = document.getElementById('server').value.substr(document.getElementById('server').value.length-1) == '/' ? document.getElementById('server').value : document.getElementById('server').value+'/'
+	if (s == '/') {
+		localStorage.setItem('songServer', window.state.defaultSongServer)
+		return null
+	}
 	fetch(s)
 	.then((res) => {
 		if (res.status == 200) {

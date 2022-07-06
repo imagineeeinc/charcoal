@@ -1,4 +1,3 @@
-let server = localStorage.getItem('songServer')
 document.getElementById('search-box').onkeyup = () => {
 	setTimeout(()=>{
 		search()
@@ -6,6 +5,7 @@ document.getElementById('search-box').onkeyup = () => {
 }
 document.getElementById('search-box').onchange = search
 function search(){
+	let server = state.songServer
 	let s = document.getElementById('search-box').value
 	fetch(server + 'api/search/?q=' + encodeURIComponent(s))
 	.then(response => response.json())

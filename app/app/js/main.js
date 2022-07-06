@@ -9,6 +9,7 @@ window.state = {
 	queue: [],
 	curPlay: false,
 	playing: false,
+	defaultSongServer: 'https://charcoal-song-server.up.railway.app/',
 	songServer: 'https://charcoal-song-server.up.railway.app/',
 	curDuration: [0,0],
 	add(id, img, duration, title) {
@@ -49,7 +50,8 @@ import './modules/dev.js'
 import './modules/search.js'
 //init
 state.set('home')
-state.songServer = localStorage.getItem('songServer') || 'https://charcoal-song-server.up.railway.app/'
+state.songServer = localStorage.getItem('songServer') || state.defaultSongServer
+localStorage.setItem('songServer', state.songServer)
 fetch(state.songServer)
 .then((res) => {
 	if (res.status == 200) {
