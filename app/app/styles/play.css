@@ -6,9 +6,9 @@
 	justify-content: flex-end;
 	align-items: center; */
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr; 
-	align-items: center;
+	grid-template-rows: 1fr 1fr 2fr; 
 	justify-items: center;
+	align-items: end;
 	padding-bottom: 0 !important;
 	height: calc(100% - var(--nav-width));
 	overflow: hidden;
@@ -19,19 +19,17 @@
 	font-size: 20px;
 }
 #control-bar {
-	transform: translateX(calc());
 	width: calc(100% + var(--nav-width) * 2 - 40px);
-	height: calc(var(--nav-width)* 3);
-	padding-bottom: var(--nav-width);
+	height: 100%;
 	display: grid;
 	align-items: center;
 	justify-items: center;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 2fr;
 	z-index: 50;
 	user-select: none;
 }
 #controls {
-	font-size: 25px;
+	font-size: 30px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	column-gap: 20px;

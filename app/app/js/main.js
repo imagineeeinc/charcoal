@@ -13,7 +13,15 @@ window.state = {
 	songServer: 'https://charcoal-song-server.up.railway.app/',
 	curDuration: [0,0],
 	add(id, img, duration, title) {
-		state.queue.push([id, img, duration, title])
+		if (state.queue.find((e) => e[0] == id)) {
+			alert("Music already in queue. Cannot add.")
+		} else {
+			state.queue.push([id, img, duration, title])
+		}
+	},
+	remove(id) {
+		state.queue.splice(state.queue.findIndex((e) => e[0] == id), 1)
+		console.log(state.queue)
 	},
 	play(id, img, duration, title){
 		if(state.curPlay === false){
@@ -75,8 +83,12 @@ document.querySelectorAll('.menu-btn').forEach((e)=>{
 		document.querySelector('.cur-page').classList.remove('cur-page')
 		e.classList.add('cur-page')
 		state.set(e.id)
+		if (e.id == 'search') {
+			document.getElementById('search-box').focus()
+		}
 	})
 })
+import './modules/queue.js'
 /* document.onclick = ()=> {
 	var audio = new Audio('http://localhost:3000/api/stream?id=<id>');
 	audio.play();

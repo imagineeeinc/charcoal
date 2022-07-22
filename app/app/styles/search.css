@@ -50,6 +50,7 @@
 	border: 3px solid var(--accent);
 	color: var(--bg);
 	font-weight: 500;
+	transform: translateY(-10px) scale(1.025);
 }
 .search-res > img {
 	aspect-ratio: 720/404;

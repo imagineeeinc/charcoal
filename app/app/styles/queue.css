@@ -1,0 +1,59 @@
+.queue-item {
+	padding: 5px;
+	margin-top: 20px;
+	border: 3px solid var(--shadow);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+	max-height: 30vh;
+	overflow-y: hidden;
+}
+.queue-item:hover {
+	border: 3px solid var(--accent);
+	cursor: grab;
+}
+.queue-item:active {
+	cursor: grabbing;
+}
+.queue-item > img {
+	aspect-ratio: 720/404;
+	width: 50%;
+	max-width: 30vh;
+	border-radius: 10px;
+}
+.queue-item-data {
+	right: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+	width: 100%;
+	overflow-y: hidden;
+}
+.queue-item-btns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	font-size: 25px;
+}
+.queue-item-btns > button {
+	display: inline-block;
+	height: 60%;
+	margin: 5%;
+	padding: 0;
+}
+.queue-item-txt {
+	right: 0;
+	display: grid;
+	font-size: 15px;
+	grid-template-rows: 1fr 1ch;
+	margin-left: 10px;
+	height: 100%;
+	width: 100%;
+	overflow-y: hidden;
+}
+.queue-item-txt > *:not(:first-child) {
+	color: grey;
+}

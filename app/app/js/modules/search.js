@@ -1,7 +1,13 @@
+import {createQueueItem} from './queue.js'
+var typing = false
 document.getElementById('search-box').onkeyup = () => {
+	typing = true
 	setTimeout(()=>{
-		search()
-	}, 1000)
+		if (typing == true) {
+			search()
+			typing = false
+		}
+	}, 2000)
 }
 document.getElementById('search-box').onchange = search
 function search(){
@@ -28,9 +34,10 @@ function search(){
 				if(window.state.curPlay === false){
 					window.state.play(d.getAttribute('video-id'), d.getAttribute('video-img'), d.getAttribute('video-duration'), d.getAttribute('video-title'))
 				}
-				let c = d.cloneNode(true)
+				createQueueItem(d.getAttribute('video-id'), d.getAttribute('video-img'), d.getAttribute('video-duration'), d.getAttribute('video-title'))
+				/* let c = d.cloneNode(true)
 				c.removeEventListener('click', ()=>{})
-				document.getElementById('queue-content').append(c)
+				document.getElementById('queue-content').append(c) */
 			})
 			document.getElementById('search-results').append(d)
 		});
