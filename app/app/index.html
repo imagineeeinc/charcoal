@@ -22,6 +22,7 @@
         <button class="symbol menu-btn" id="now-playing">play_circle</button>
         <button class="symbol menu-btn" id="queue">queue_music</button>
         <button class="symbol menu-btn" id="search">search</button>
+        <button class="symbol menu-btn" id="download">download</button>
         <button class="symbol menu-btn" id="settings">settings</button>
       </div>
     </nav>
@@ -42,7 +43,10 @@
             <button class="symbol" id="forward-btn">fast_forward</button>
             <button class="symbol" id="next-song">skip_next</button>
           </div>
-          <div id="extra-controls"></div>
+          <div id="extra-controls">
+            <button class="symbol" id="loop-mode">repeat</button>
+            <button class="symbol" id="dl-song">download_for_offline</button>
+          </div>
           <div id="progress-box">
             <span id="duration-passed">0:00</span>
             <progress id="progress" value="0"></progress>
@@ -57,7 +61,6 @@
             <div class="queue-item-data">
               <div class="queue-item-txt">
                 <span class="queue-item-title"></span>
-                <br>
                 <span class="queue-item-len"></span>
               </div>
               <div class="queue-item-btns">
@@ -67,23 +70,31 @@
             </div>
           </div>
         </template>
+        <h1 id="queue-empty">The queue is currently empty.</h1>
       </main>
       <main id="search-content" search="">
         <template id="search-res-temp">
           <div class="search-res">
             <img>
-            <div class="search-res-txt">
-              <span class="search-res-title"></span>
-              <br>
-              <span class="search-res-views"></span>
-              <br>
-              <span class="search-res-len"></span>
+            <div class="search-res-data">
+              <div class="search-res-txt">
+                <span class="search-res-title"></span>
+                <span class="search-res-views"></span>
+                <span class="search-res-len"></span>
+              </div>
+              <div class="search-res-btns">
+                <button class="symbol add-to-queue">add_to_queue</button>
+                <button class="symbol play-now">play_arrow</button>
+              </div>
             </div>
           </div>
         </template>
         <input type="search" id="search-box" placeholder="search">
         <div id="search-results">
         </div>
+      </main>
+      <main id="download-content" download="">
+        <h1>coming soon</h1>
       </main>
       <main id="settings-content" settings="">
         <section>

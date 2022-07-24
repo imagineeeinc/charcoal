@@ -34,6 +34,9 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	column-gap: 20px;
 }
+#extra-controls {
+	font-size: 25px;
+}
 #progress {
 	-webkit-appearance: none;
   appearance: none;

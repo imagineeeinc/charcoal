@@ -60,7 +60,11 @@ setInterval(()=>{
 		playBtn(false)
 		audio.src = audio.src
 		progress.value = 0
-		window.state.next()
+		if (window.state.loopMode == true) {
+			setTimeout(()=>playBtn(true), 500)
+		} else {
+			window.state.next()
+		}
 	}
 
 	progression = Number(progress.value)
@@ -83,6 +87,7 @@ export function play(id, thumbnail, duration, title) {
 		thumb.src = ''
 		progress.value = 0
 		progress.setAttribute('disabled', '')
+		document.getElementById('title').innerHTML = ''
 		playBtn(false)
 		return null
 	}
@@ -92,7 +97,11 @@ export function play(id, thumbnail, duration, title) {
 	thumb.src = thumbnail
 	document.getElementById('title').innerHTML = title
 	audio.src = `${window.state.songServer}api/stream?id=${id}`
-	length = Number(duration[0])*60 + Number(duration[1])
+	if (duration.length == 3) {
+		length = Number(duration[0])*60*60 + Number(duration[1])*60 + Number(duration[2])
+	} else {
+		length = Number(duration[0])*60 + Number(duration[1])
+	}
 	document.getElementById('duration').innerHTML = window.state.curDuration
 	playBtn(true)
 	if ("mediaSession" in navigator){
@@ -102,3 +111,13 @@ export function play(id, thumbnail, duration, title) {
 		});
 	}
 }
+
+document.getElementById('loop-mode').addEventListener('click', ()=>{
+	if (window.state.loopMode == false) {
+		window.state.loopMode = true
+		document.getElementById('loop-mode').innerHTML = 'repeat_on'
+	} else if (window.state.loopMode == true) {
+		window.state.loopMode = false
+		document.getElementById('loop-mode').innerHTML = 'repeat'
+	}
+})

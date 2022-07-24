@@ -97,7 +97,7 @@ nav * {
 #body {
 	overflow: hidden;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr;
 	row-gap: calc(var(--nav-width) + 20px);
 	width: calc(100vw - var(--nav-width) * 2 + 20px);
@@ -123,4 +123,7 @@ input {
 	color: var(--color);
 	background: var(--bg);
 	border-radius: 5px;
+}
+.hide {
+	display: none;
 }

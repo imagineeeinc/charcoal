@@ -25,13 +25,23 @@
 	max-width: 30vh;
 	border-radius: 10px;
 }
+@media (min-width: 701px) {
+	.queue-item-data {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (max-width: 700px) {
+	.queue-item-data {
+		grid-template-rows: 1fr 1fr;
+		row-gap: 10px;
+	}
+}
 .queue-item-data {
 	right: 0;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
 	height: 100%;
 	width: 100%;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 .queue-item-btns {
 	display: grid;
@@ -48,7 +58,7 @@
 	right: 0;
 	display: grid;
 	font-size: 15px;
-	grid-template-rows: 1fr 1ch;
+	grid-template-rows: 1fr 2ch;
 	margin-left: 10px;
 	height: 100%;
 	width: 100%;

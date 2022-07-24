@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 app.get('/api/stream/', async (req, res) => {
 	let id = req.query.id
   try {
-    for await (const chunk of stream(`http://youtube.com/watch?v=${id}`)) {
+    res.set('Cache-control', 'public, max-age='+60*60*24*7*30*12)
+    for await (const chunk of stream(`http://youtube.com/watch?v=${id}&t=42`)) {
       res.write(chunk)
     }
     res.end()
