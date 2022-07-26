@@ -3,6 +3,9 @@ let thumb = document.getElementById('thumbnail')
 let audio = new Audio()
 let progression = 0
 let length = 0
+let songTitle = 'Nothing Playing'
+let roll = ["◐","◓","◑","◒"]
+let rollNum = 0
 
 document.getElementById('play-btn').onclick = () => {
 	playBtn(!window.state.playing)
@@ -67,6 +70,15 @@ setInterval(()=>{
 		}
 	}
 
+	if (window.state.playing) {
+		document.title = roll[rollNum] + ' | ' + songTitle
+		rollNum++
+		if (rollNum >= roll.length) {
+			rollNum = 0
+		}
+	} else {
+		document.title = '⏵︎' + ' | ' + songTitle
+	}
 	progression = Number(progress.value)
 }, 1)
 function playBtn(play) {
@@ -88,6 +100,7 @@ export function play(id, thumbnail, duration, title) {
 		progress.value = 0
 		progress.setAttribute('disabled', '')
 		document.getElementById('title').innerHTML = ''
+		songTitle = 'Nothing Playing'
 		playBtn(false)
 		return null
 	}
@@ -96,6 +109,7 @@ export function play(id, thumbnail, duration, title) {
 	progression = 0
 	thumb.src = thumbnail
 	document.getElementById('title').innerHTML = title
+	songTitle = title
 	audio.src = `${window.state.songServer}api/stream?id=${id}`
 	if (duration.length == 3) {
 		length = Number(duration[0])*60*60 + Number(duration[1])*60 + Number(duration[2])

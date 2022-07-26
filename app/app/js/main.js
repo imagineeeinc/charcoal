@@ -21,9 +21,11 @@ window.state = {
 		}
 	},
 	remove(id) {
-		if (state.next() == false) {
-			if (state.back() == false) {
-				state.play(null)
+		if (state.queue.findIndex((e) => e[0] == id) == state.curPlay) {
+			if (state.next() == false) {
+				if (state.back() == false) {
+					state.play(null)
+				}
 			}
 		}
 		state.queue.splice(state.queue.findIndex((e) => e[0] == id), 1)
