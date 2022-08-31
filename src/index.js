@@ -37,6 +37,7 @@ app.get('/api/search/', async (req, res) => {
 });
 
 var port = process.env.PORT || 3000
-app.listen(port, ()=> {
+var host = process.env.HOST || '0.0.0.0'
+app.listen(port, host, ()=> {
 	console.log(`Listening on port ${port}`)
 });
