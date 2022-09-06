@@ -4,8 +4,6 @@ let audio = new Audio()
 let progression = 0
 let length = 0
 let songTitle = 'Nothing Playing'
-let roll = ["◐","◓","◑","◒"]
-let rollNum = 0
 
 document.getElementById('play-btn').onclick = () => {
 	playBtn(!window.state.playing)
@@ -71,11 +69,7 @@ setInterval(()=>{
 	}
 
 	if (window.state.playing) {
-		document.title = roll[rollNum] + ' | ' + songTitle
-		rollNum++
-		if (rollNum >= roll.length) {
-			rollNum = 0
-		}
+		document.title = songTitle
 	} else {
 		document.title = '⏵︎' + ' | ' + songTitle
 	}

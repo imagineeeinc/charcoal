@@ -97,7 +97,7 @@ window.onunload = () => {
 	localStorage.setItem('page-state', sessionStorage.getItem('state'))
 }
 window.onload = () => {
-	state.dbRequest = indexedDB.open('dl-songs', 1);
+	/* state.dbRequest = indexedDB.open('dl-songs', 1);
 	state.dbRequest.onerror = (e) => {
 		throw Error(e.message)
 	}
@@ -133,7 +133,7 @@ window.onload = () => {
 		state.db = e.target.result;
 		state.db.createObjectStore('songs', {keyPath:'id', autoIncrement: true})
 		let dbReady = true
-	}
+	} */
 	setTimeout(() => {
 		state.set(localStorage.getItem('page-state'))
 		document.querySelector('.cur-page').classList.remove('cur-page')
@@ -152,7 +152,7 @@ document.querySelectorAll('.menu-btn').forEach((e)=>{
 	})
 })
 import './modules/queue.js'
-import './modules/dl.js'
+//import './modules/dl.js'
 /* document.onclick = ()=> {
 	var audio = new Audio('http://localhost:3000/api/stream?id=<id>');
 	audio.play();
