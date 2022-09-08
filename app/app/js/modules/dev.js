@@ -1,30 +1,5 @@
 window.onload = ()=>{
-	if (localStorage.getItem('dev') == 'true') {
-		document.querySelectorAll('.dev').forEach((e)=>{
-			e.removeAttribute('disabled')
-		})
-		document.getElementById('develop').checked = true
-
-		document.getElementById('server').value = localStorage.getItem('songServer')
-	} else {
-		document.querySelectorAll('.dev').forEach((e)=>{
-			e.setAttribute('disabled', '')
-		})
-		document.getElementById('develop').checked = false
-	}
-}
-document.getElementById('develop').onchange = () => {
-	if (document.getElementById('develop').checked == true) {
-		document.querySelectorAll('.dev').forEach((e)=>{
-			e.removeAttribute('disabled')
-		})
-		localStorage.setItem('dev', true)
-	} else {
-		document.querySelectorAll('.dev').forEach((e)=>{
-			e.setAttribute('disabled', '')
-		})
-		localStorage.setItem('dev', false)
-	}
+	document.getElementById('server').value = localStorage.getItem('songServer')
 }
 
 document.getElementById('server').onchange = () => {

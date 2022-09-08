@@ -1,5 +1,5 @@
 import '../styles/main.css'
-import {play} from './modules/play.js'
+import {play, playBtn} from './modules/play.js'
 window.state = {
 	set(s){
 		sessionStorage.setItem('state', s)
@@ -157,3 +157,19 @@ import './modules/queue.js'
 	var audio = new Audio('http://localhost:3000/api/stream?id=<id>');
 	audio.play();
 } */
+document.onkeydown = (e) => {
+	if (state.get() == "now-playing") {
+		let key = e.key.toLowerCase()
+		if (key == " " && e.target != document.getElementById('play-btn')) {
+			//playBtn(!state.playing)
+			document.getElementById('play-btn').focus()
+			document.getElementById('play-btn').click()
+		}
+		if (key == "arrowleft") {
+			document.getElementById('backward-btn').click()
+		}
+		if (key == "arrowright") {
+			document.getElementById('forward-btn').click()
+		}
+	}
+}

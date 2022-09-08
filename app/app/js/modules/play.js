@@ -75,7 +75,7 @@ setInterval(()=>{
 	}
 	progression = Number(progress.value)
 }, 1)
-function playBtn(play) {
+export function playBtn(play) {
 	if (play == true) {
 		document.getElementById('play-btn').innerHTML = 'pause'
 		window.state.playing = true
@@ -129,3 +129,4 @@ document.getElementById('loop-mode').addEventListener('click', ()=>{
 		document.getElementById('loop-mode').innerHTML = 'repeat'
 	}
 })
+//TODO: Add preconect to songs

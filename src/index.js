@@ -33,7 +33,19 @@ app.get('/api/stream/', async (req, res) => {
 
 app.get('/api/search/', async (req, res) => {
 	let q = req.query.q
-  res.json(await ytsearch.search(q))
+  let data = await ytsearch.search(q)
+  let response = []
+  data.forEach(item => {
+    let info = {
+      thumbnail: item.snippet.thumbnails.url,
+      title: item.title,
+      views: item.views,
+      duration: item.duration_raw,
+      video_id: item.id.videoId
+    }
+    response.push(info)
+  })
+  res.json(response)
 });
 
 var port = process.env.PORT || 3000
