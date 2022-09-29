@@ -25,11 +25,10 @@
   },
   "homepage": "https://github.com/imagineeeinc/charcoal#readme",
   "dependencies": {
-    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "youtube-audio-stream": "^0.3.61",
-    "youtube-search-without-api-key": "^1.0.7"
+    "youtube-search-without-api-key": "^1.0.7",
+    "youtubei.js": "^2.2.3"
   },
   "devDependencies": {
     "fs-extra": "^10.1.0",
