@@ -20,7 +20,7 @@ app.get('/api/stream/', async (req, res) => {
   try {
     res.set('Cache-control', 'public, max-age='+60*60*24*7*30*12)
     const youtube = await Innertube.create({ gl: 'US',  cache: new UniversalCache() })
-    let stream = await youtube.download(id,{format:'mp4',type:'audio',quality: '144p'})
+    let stream = await youtube.download(id,{format:'mp4',type:'audio',quality: 'bestefficiency'})
     for await (const chunk of streamToIterable(stream)) {
       res.write(chunk);
     }
