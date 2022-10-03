@@ -27,8 +27,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "youtube-search-without-api-key": "^1.0.7",
-    "youtubei.js": "^2.2.3"
+    "play-dl": "^1.9.5",
+    "youtube-search-without-api-key": "^1.0.7"
   },
   "devDependencies": {
     "fs-extra": "^10.1.0",
