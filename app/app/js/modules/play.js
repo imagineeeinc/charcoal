@@ -10,14 +10,14 @@ document.getElementById('play-btn').onclick = () => {
 }
 navigator.mediaSession.setActionHandler('pause', ()=>playBtn(false))
 navigator.mediaSession.setActionHandler('play', ()=>playBtn(true))
-document.getElementById('forward-btn').onclick = () => {
+/* document.getElementById('forward-btn').onclick = () => {
 	audio.currentTime += 10
 }
-navigator.mediaSession.setActionHandler('seekforward', ()=>audio.currentTime+=10)
-document.getElementById('backward-btn').onclick = () => {
+navigator.mediaSession.setActionHandler('seekforward', ()=>audio.currentTime+=10) */
+/* document.getElementById('backward-btn').onclick = () => {
 	audio.currentTime -= 10
 }
-navigator.mediaSession.setActionHandler('seekbackward', ()=>audio.currentTime-=10)
+navigator.mediaSession.setActionHandler('seekbackward', ()=>audio.currentTime-=10) */
 document.getElementById('next-song').onclick = () => {
 	window.state.next()
 }
@@ -27,12 +27,12 @@ document.getElementById('last-song').onclick = () => {
 }
 navigator.mediaSession.setActionHandler('nexttrack', ()=>window.state.back())
 
-let mouseOnProgress = false
+/* let mouseOnProgress = false
 progress.addEventListener('mousedown', (e) => {
 	mouseOnProgress = true
 	seek(e)
-})
-progress.addEventListener('mousemove', seek)
+}) */
+/* progress.addEventListener('mousemove', seek)
 progress.addEventListener('mouseup', () => {
 	mouseOnProgress = false
 })
@@ -41,7 +41,7 @@ function seek(e){
 		let x = e.clientX-progress.getBoundingClientRect().x
 		audio.currentTime = length*(x/progress.getBoundingClientRect().width)
 	}
-}
+} */
 
 audio.addEventListener("timeupdate", function() {
 	progression = audio.currentTime/length

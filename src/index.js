@@ -1,7 +1,6 @@
 const ytsearch = require('youtube-search-without-api-key');
 const express = require('express')
-const { Innertube, UniversalCache } = require('youtubei.js');
-const { streamToIterable } = require('youtubei.js/dist/src/utils/Utils')
+const { video_basic_info, stream } = require('play-dl');
 const path = require('path')
 
 const app = express()
@@ -18,11 +17,12 @@ app.get('/', (req, res) => {
 app.get('/api/stream/', async (req, res) => {
 	let id = req.query.id
   try {
-    res.set('Cache-control', 'public, max-age='+60*60*24*7*30*12)
-    const youtube = await Innertube.create({ gl: 'US',  cache: new UniversalCache() })
-    let stream = await youtube.download(id,{format:'mp4',type:'audio',quality: '144p'})
-    for await (const chunk of streamToIterable(stream)) {
-      res.write(chunk);
+    //res.set('Cache-control', 'public, max-age='+60*60*24*7*30*12)
+    var audio = await stream(`https://youtube.com/watch?v=${id}`, {discordPlayerCompatibility: true})
+    //res.setHeader("content-disposition",`attachment; filename="${id}.webm"`)
+    res.setHeader('type', audio.type)
+    for await (const chunk of audio.stream) {
+      res.write(chunk)
     }
     res.end()
   } catch (err) {
@@ -32,19 +32,6 @@ app.get('/api/stream/', async (req, res) => {
       res.end('internal system error\n\n'+err)
     }
   }
-  /* try {
-    res.set('Cache-control', 'public, max-age='+60*60*24*7*30*12)
-    for await (const chunk of stream(`http://youtube.com/watch?v=${id}`)) {
-      res.write(chunk)
-    }
-    res.end()
-  } catch (err) {
-    console.error(err)
-    if (!res.headersSent) {
-      res.writeHead(500)
-      res.end('internal system error')
-    }
-  } */
 });
 
 app.get('/api/search/', async (req, res) => {
