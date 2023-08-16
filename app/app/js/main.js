@@ -173,3 +173,6 @@ document.onkeydown = (e) => {
 		}
 	}
 }
+document.body.addEventListener("click", ()=>{
+	document.getElementById("replacement").classList.add("hide")
+})
