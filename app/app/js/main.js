@@ -173,6 +173,11 @@ document.onkeydown = (e) => {
 		}
 	}
 }
+let countClick = 0
 document.body.addEventListener("click", ()=>{
-	document.getElementById("replacement").classList.add("hide")
+	if (countClick <= 10) {
+		countClick++
+	} else {
+		document.getElementById("replacement").classList.add("hide")
+	}
 })
