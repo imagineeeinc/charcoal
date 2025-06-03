@@ -33,7 +33,7 @@
   "devDependencies": {
     "fs-extra": "^10.1.0",
     "nodemon": "^2.0.18",
-    "pwa-asset-generator": "^6.1.0",
+    "pwa-asset-generator": "^8.0.5",
     "vite": "^2.9.16"
   }
 }
